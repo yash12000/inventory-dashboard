@@ -1,0 +1,204 @@
+{
+  "Item_Master": [
+    {
+      "Item ID": "ITM001",
+      "Item Name": "Widget A",
+      "Category": "Electronics",
+      "ABC Class": "A",
+      "MSL": 50,
+      "Unit Price": 25.5
+    },
+    {
+      "Item ID": "ITM002",
+      "Item Name": "Gear B",
+      "Category": "Automotive",
+      "ABC Class": "B",
+      "MSL": 30,
+      "Unit Price": 15.75
+    },
+    {
+      "Item ID": "ITM003",
+      "Item Name": "Sprocket C",
+      "Category": "Industrial",
+      "ABC Class": "C",
+      "MSL": 100,
+      "Unit Price": 8.2
+    },
+    {
+      "Item ID": "ITM004",
+      "Item Name": "Gadget D",
+      "Category": "Consumer Goods",
+      "ABC Class": "A",
+      "MSL": 25,
+      "Unit Price": 42.0
+    },
+    {
+      "Item ID": "ITM005",
+      "Item Name": "Resistor X",
+      "Category": "Electronics",
+      "ABC Class": "B",
+      "MSL": 75,
+      "Unit Price": 2.1
+    },
+    {
+      "Item ID": "ITM006",
+      "Item Name": "Piston Y",
+      "Category": "Automotive",
+      "ABC Class": "A",
+      "MSL": 40,
+      "Unit Price": 60.0
+    },
+    {
+      "Item ID": "ITM007",
+      "Item Name": "Bearing Z",
+      "Category": "Industrial",
+      "ABC Class": "B",
+      "MSL": 60,
+      "Unit Price": 12.5
+    },
+    {
+      "Item ID": "ITM008",
+      "Item Name": "Utensil E",
+      "Category": "Consumer Goods",
+      "ABC Class": "C",
+      "MSL": 120,
+      "Unit Price": 5.9
+    },
+    {
+      "Item ID": "ITM009",
+      "Item Name": "Capacitor P",
+      "Category": "Electronics",
+      "ABC Class": "C",
+      "MSL": 90,
+      "Unit Price": 0.75
+    },
+    {
+      "Item ID": "ITM010",
+      "Item Name": "Filter Q",
+      "Category": "Automotive",
+      "ABC Class": "B",
+      "MSL": 55,
+      "Unit Price": 9.25
+    },
+    {
+      "Item ID": "ITM011",
+      "Item Name": "Valve R",
+      "Category": "Industrial",
+      "ABC Class": "A",
+      "MSL": 35,
+      "Unit Price": 75.0
+    },
+    {
+      "Item ID": "ITM012",
+      "Item Name": "Plate F",
+      "Category": "Consumer Goods",
+      "ABC Class": "B",
+      "MSL": 80,
+      "Unit Price": 3.5
+    },
+    {
+      "Item ID": "ITM013",
+      "Item Name": "Diode L",
+      "Category": "Electronics",
+      "ABC Class": "A",
+      "MSL": 45,
+      "Unit Price": 1.5
+    },
+    {
+      "Item ID": "ITM014",
+      "Item Name": "Hose M",
+      "Category": "Automotive",
+      "ABC Class": "C",
+      "MSL": 110,
+      "Unit Price": 4.8
+    },
+    {
+      "Item ID": "ITM015",
+      "Item Name": "Bolt N",
+      "Category": "Industrial",
+      "ABC Class": "B",
+      "MSL": 70,
+      "Unit Price": 0.3
+    },
+    {
+      "Item ID": "ITM016",
+      "Item Name": "Mug G",
+      "Category": "Consumer Goods",
+      "ABC Class": "A",
+      "MSL": 30,
+      "Unit Price": 10.0
+    },
+    {
+      "Item ID": "ITM017",
+      "Item Name": "Inductor I",
+      "Category": "Electronics",
+      "ABC Class": "C",
+      "MSL": 95,
+      "Unit Price": 0.9
+    },
+    {
+      "Item ID": "ITM018",
+      "Item Name": "Cable J",
+      "Category": "Automotive",
+      "ABC Class": "A",
+      "MSL": 20,
+      "Unit Price": 18.5
+    },
+    {
+      "Item ID": "ITM019",
+      "Item Name": "Screw K",
+      "Category": "Industrial",
+      "ABC Class": "B",
+      "MSL": 65,
+      "Unit Price": 0.2
+    },
+    {
+      "Item ID": "ITM020",
+      "Item Name": "Towel H",
+      "Category": "Consumer Goods",
+      "ABC Class": "C",
+      "MSL": 105,
+      "Unit Price": 6.75
+    },
+    {
+      "Item ID": "ITM021",
+      "Item Name": "Raw Material 1",
+      "Category": "Raw Materials",
+      "ABC Class": "A",
+      "MSL": 40,
+      "Unit Price": 12.34
+    },
+    {
+      "Item ID": "ITM022",
+      "Item Name": "Raw Material 2",
+      "Category": "Raw Materials",
+      "ABC Class": "B",
+      "MSL": 60,
+      "Unit Price": 23.45
+    },
+    {
+      "Item ID": "ITM023",
+      "Item Name": "Raw Material 3",
+      "Category": "Raw Materials",
+      "ABC Class": "C",
+      "MSL": 80,
+      "Unit Price": 34.56
+    },
+    {
+      "Item ID": "ITM024",
+      "Item Name": "Raw Material 4",
+      "Category": "Raw Materials",
+      "ABC Class": "A",
+      "MSL": 100,
+      "Unit Price": 45.67
+    },
+    {
+      "Item ID": "ITM025",
+      "Item Name": "Raw Material 5",
+      "Category": "Raw Materials",
+      "ABC Class": "B",
+      "MSL": 120,
+      "Unit Price": 56.78
+    }
+  ]
+}

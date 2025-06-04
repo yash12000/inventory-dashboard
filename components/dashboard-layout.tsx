@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
 import {
   SidebarProvider,
@@ -11,15 +11,15 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarInset,
-} from "@/components/ui/sidebar"
-import { BarChart3, TrendingUp, Package, Calculator } from "lucide-react"
+} from "@/components/ui/sidebar";
+import { BarChart3, TrendingUp, Package, Calculator } from "lucide-react";
 
 const menuItems = [
   { title: "Overview", icon: BarChart3, href: "#overview" },
   { title: "Stock Analysis", icon: TrendingUp, href: "#stock-analysis" },
   { title: "Consumption", icon: Package, href: "#consumption" },
   { title: "Turnover Ratio", icon: Calculator, href: "#turnover" },
-]
+];
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -52,5 +52,5 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         </SidebarInset>
       </div>
     </SidebarProvider>
-  )
+  );
 }

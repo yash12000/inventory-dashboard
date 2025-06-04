@@ -7,7 +7,11 @@ export interface InventoryItem {
   openingStock: number
   closingStock: number
   consumption: number
+  incoming: number
   msl: number
+  unitPrice: number
+  units: string
+  inventoryTurnoverRatio: number
 }
 
 export interface FilterState {
