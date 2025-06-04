@@ -1,19 +1,19 @@
-import type { InventoryItem } from "./types"
+import type { InventoryItem, InventoryData } from "./types"
 import inventoryDataJson from "../data/inventory-data.json"
 
-const rawInventoryData = inventoryDataJson.Inventory_Data
+const rawInventoryData = (inventoryDataJson as InventoryData).Inventory_Data
 
 export const inventoryData: InventoryItem[] = rawInventoryData.map((item) => ({
   itemId: item["Item ID"],
   itemName: item["Item Name"],
   category: item.Category,
-  abcClass: item["ABC Class"] as "A" | "B" | "C",
+  abcClass: item["ABC Class"],
   date: item.Date.split(" ")[0],
   openingStock: item["Opening Stock"],
   closingStock: item["Closing Stock"],
   consumption: item.Consumption,
   incoming: item.Incoming,
-  msl: item.MSL,
+  minimumStockLevel: item.MSL,
   unitPrice: item["Unit Price"],
   units: item.Units,
   inventoryTurnoverRatio: item["Inventory Turnover ratio"],
@@ -29,12 +29,12 @@ export const dataStats = {
     end: inventoryData.reduce((max, item) => (item.date > max ? item.date : max), inventoryData[0]?.date || ""),
   },
   priceRange: {
-    min: Math.min(...inventoryData.map((item) => item.unitPrice)),
-    max: Math.max(...inventoryData.map((item) => item.unitPrice)),
+    min: Math.min(...inventoryData.map((item) => item.unitPrice || 0)),
+    max: Math.max(...inventoryData.map((item) => item.unitPrice || 0)),
   },
   mslRange: {
-    min: Math.min(...inventoryData.map((item) => item.msl)),
-    max: Math.max(...inventoryData.map((item) => item.msl)),
+    min: Math.min(...inventoryData.map((item) => item.minimumStockLevel)),
+    max: Math.max(...inventoryData.map((item) => item.minimumStockLevel)),
   },
   stockRange: {
     minOpening: Math.min(...inventoryData.map((item) => item.openingStock)),
@@ -57,7 +57,7 @@ export const itemMasterDataReference = [
       category: item.category,
       abcClass: item.abcClass,
       unitPrice: item.unitPrice,
-      msl: item.msl,
+      minimumStockLevel: item.minimumStockLevel,
       units: item.units,
     })),
   ),
