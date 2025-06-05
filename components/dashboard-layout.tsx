@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 
 import {
   SidebarProvider,
@@ -36,11 +36,11 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.href} className="flex items-center gap-2">
+                  <SidebarMenuButton>
+                    <span className="flex items-center gap-2">
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
-                    </a>
+                    </span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
