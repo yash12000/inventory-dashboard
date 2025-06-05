@@ -1,23 +1,151 @@
-import type { InventoryItem, InventoryData } from "./types"
-import inventoryDataJson from "../data/inventory-data.json"
+import type { InventoryItem } from "./types";
 
-const rawInventoryData = (inventoryDataJson as InventoryData).Inventory_Data
+const rawInventoryData = [
+  {
+    date: "2025-04-29 00:00:00",
+    "Item ID": "ITEM-0001",
+    "Opening Stock": 156,
+    Consumption: 24,
+    Incoming: 25,
+    "Closing Stock": 157,
+    Units: "Roll",
+    "Item Name": "Product 1",
+    Category: "Raw Materials",
+    "Unit Price": 491.88,
+    "ABC Class": "A",
+    MSL: 152,
+    "Inventory Turnover ratio": 0.1533546326,
+    Ratio: 1,
+  },
+  {
+    date: "2025-04-30 00:00:00",
+    "Item ID": "ITEM-0001",
+    "Opening Stock": 196,
+    Consumption: 37,
+    Incoming: 1,
+    "Closing Stock": 160,
+    Units: "Roll",
+    "Item Name": "Product 1",
+    Category: "Raw Materials",
+    "Unit Price": 491.88,
+    "ABC Class": "A",
+    MSL: 152,
+    "Inventory Turnover ratio": 0.2078651685,
+    Ratio: 1,
+  },
+  {
+    date: "2025-03-20 00:00:00",
+    "Item ID": "ITEM-0002",
+    "Opening Stock": 265,
+    Consumption: 9,
+    Incoming: 29,
+    "Closing Stock": 285,
+    Units: "Sheet",
+    "Item Name": "Product 2",
+    Category: "Maintenance",
+    "Unit Price": 205.42,
+    "ABC Class": "C",
+    MSL: 215,
+    "Inventory Turnover ratio": 0.03272727273,
+    Ratio: 1,
+  },
+  {
+    date: "2025-02-01 00:00:00",
+    "Item ID": "ITEM-0003",
+    "Opening Stock": 259,
+    Consumption: 16,
+    Incoming: 9,
+    "Closing Stock": 252,
+    Units: "Carton",
+    "Item Name": "Product 3",
+    Category: "Packaging",
+    "Unit Price": 410.05,
+    "ABC Class": "C",
+    MSL: 241,
+    "Inventory Turnover ratio": 0.0626223092,
+    Ratio: 1,
+  },
+  {
+    date: "2025-04-02 00:00:00",
+    "Item ID": "ITEM-0124",
+    "Opening Stock": 236,
+    Consumption: 43,
+    Incoming: 10,
+    "Closing Stock": 203,
+    Units: "Carton",
+    "Item Name": "Product 124",
+    Category: "Packaging",
+    "Unit Price": 339.29,
+    "ABC Class": "B",
+    MSL: 264,
+    "Inventory Turnover ratio": 0.1958997722,
+    Ratio: 1,
+  },
+  {
+    date: "2025-02-03 00:00:00",
+    "Item ID": "ITEM-0004",
+    "Opening Stock": 402,
+    Consumption: 38,
+    Incoming: 17,
+    "Closing Stock": 381,
+    Units: "Sheet",
+    "Item Name": "Product 4",
+    Category: "Maintenance",
+    "Unit Price": 401.19,
+    "ABC Class": "C",
+    MSL: 275,
+    "Inventory Turnover ratio": 0.09706257982,
+    Ratio: 1,
+  },
+  {
+    date: "2025-02-24 00:00:00",
+    "Item ID": "ITEM-0006",
+    "Opening Stock": 214,
+    Consumption: 1,
+    Incoming: 16,
+    "Closing Stock": 229,
+    Units: "Barrel",
+    "Item Name": "Product 6",
+    Category: "Chemicals",
+    "Unit Price": 259.02,
+    "ABC Class": "C",
+    MSL: 99,
+    "Inventory Turnover ratio": 0.004514672686,
+    Ratio: 1,
+  },
+  {
+    date: "2025-04-19 00:00:00",
+    "Item ID": "ITEM-0125",
+    "Opening Stock": 253,
+    Consumption: 39,
+    Incoming: 15,
+    "Closing Stock": 229,
+    Units: "Meter",
+    "Item Name": "Product 125",
+    Category: "Electronics",
+    "Unit Price": 170.79,
+    "ABC Class": "C",
+    MSL: 127,
+    "Inventory Turnover ratio": 0.1618257261,
+    Ratio: 1,
+  },
+];
 
 export const inventoryData: InventoryItem[] = rawInventoryData.map((item) => ({
   itemId: item["Item ID"],
   itemName: item["Item Name"],
   category: item.Category,
-  abcClass: item["ABC Class"],
-  date: item.Date.split(" ")[0],
+  abcClass: item["ABC Class"] as "A" | "B" | "C",
+  date: item.date.split(" ")[0],
   openingStock: item["Opening Stock"],
   closingStock: item["Closing Stock"],
   consumption: item.Consumption,
   incoming: item.Incoming,
-  minimumStockLevel: item.MSL,
+  msl: item.MSL,
   unitPrice: item["Unit Price"],
   units: item.Units,
   inventoryTurnoverRatio: item["Inventory Turnover ratio"],
-}))
+}));
 
 export const dataStats = {
   totalItems: [...new Set(inventoryData.map((item) => item.itemId))].length,
@@ -25,16 +153,22 @@ export const dataStats = {
   categories: [...new Set(inventoryData.map((item) => item.category))],
   abcClasses: [...new Set(inventoryData.map((item) => item.abcClass))],
   dateRange: {
-    start: inventoryData.reduce((min, item) => (item.date < min ? item.date : min), inventoryData[0]?.date || ""),
-    end: inventoryData.reduce((max, item) => (item.date > max ? item.date : max), inventoryData[0]?.date || ""),
+    start: inventoryData.reduce(
+      (min, item) => (item.date < min ? item.date : min),
+      inventoryData[0]?.date || ""
+    ),
+    end: inventoryData.reduce(
+      (max, item) => (item.date > max ? item.date : max),
+      inventoryData[0]?.date || ""
+    ),
   },
   priceRange: {
-    min: Math.min(...inventoryData.map((item) => item.unitPrice || 0)),
-    max: Math.max(...inventoryData.map((item) => item.unitPrice || 0)),
+    min: Math.min(...inventoryData.map((item) => item.unitPrice)),
+    max: Math.max(...inventoryData.map((item) => item.unitPrice)),
   },
   mslRange: {
-    min: Math.min(...inventoryData.map((item) => item.minimumStockLevel)),
-    max: Math.max(...inventoryData.map((item) => item.minimumStockLevel)),
+    min: Math.min(...inventoryData.map((item) => item.msl)),
+    max: Math.max(...inventoryData.map((item) => item.msl)),
   },
   stockRange: {
     minOpening: Math.min(...inventoryData.map((item) => item.openingStock)),
@@ -47,18 +181,21 @@ export const dataStats = {
     max: Math.max(...inventoryData.map((item) => item.consumption)),
     total: inventoryData.reduce((sum, item) => sum + item.consumption, 0),
   },
-}
+};
 
 export const itemMasterDataReference = [
-  ...new Set(
-    inventoryData.map((item) => ({
-      itemId: item.itemId,
-      itemName: item.itemName,
-      category: item.category,
-      abcClass: item.abcClass,
-      unitPrice: item.unitPrice,
-      minimumStockLevel: item.minimumStockLevel,
-      units: item.units,
-    })),
-  ),
-]
+  ...new Map(
+    inventoryData.map((item) => [
+      item.itemId,
+      {
+        itemId: item.itemId,
+        itemName: item.itemName,
+        category: item.category,
+        abcClass: item.abcClass,
+        unitPrice: item.unitPrice,
+        msl: item.msl,
+        units: item.units,
+      },
+    ])
+  ).values(),
+];
